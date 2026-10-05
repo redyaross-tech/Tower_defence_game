@@ -8,8 +8,10 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] GameObject SpawnPoint;
     [SerializeField] GameObject EndPoint;
 
+    //Список активных врагов
     private List<GameObject> Enemies = new List<GameObject>();
 
+    //Создание врага и добавление его в список
     void SpawnEnemy()
     {
         GameObject Enemy = Instantiate(EnemyPrefab, SpawnPoint.transform.position, Quaternion.identity);
@@ -23,7 +25,8 @@ public class EnemyScript : MonoBehaviour
         }
         if(Enemies.Count >= 1)
         {
-            //Enemy.transform.position = Vector3.MoveTowards(Enemy.transform.position, EndPoint.transform.position, (float)0.01);
+            //Обработка всех врагов
+            //Отсчёт в обратном порядке так как обычный приводит к ошибке отсутствуего элемента в списке
             for(int i = Enemies.Count - 1; i >= 0; i--)
             {
                 GameObject enemy = Enemies[i];
