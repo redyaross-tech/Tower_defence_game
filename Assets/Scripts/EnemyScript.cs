@@ -11,16 +11,19 @@ public class EnemyScript : MonoBehaviour
 
     //Список активных врагов
     private List<GameObject> Enemies = new List<GameObject>();
+    //Список ключевых точек
     private List<GameObject> KeyPoints = new List<GameObject>();
 
     //Создание врага и добавление его в список
     void SpawnEnemy()
     {
         GameObject Enemy = Instantiate(EnemyPrefab, SpawnPoint.transform.position, Quaternion.identity);
+        //ID следующей ключевой точки
         Enemy.GetComponent<ItemIdentifier>().NextPointID = 0;
         Enemies.Add(Enemy);
     }
 
+    //Нахождение всех ключевых точек на карте
     void GetKeyPoints()
     {
         KeyPoints.AddRange(GameObject.FindGameObjectsWithTag("KeyPoint"));
@@ -37,7 +40,7 @@ public class EnemyScript : MonoBehaviour
             for(int i = Enemies.Count - 1; i >= 0; i--)
             {
                 GameObject enemy = Enemies[i];
-                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, KeyPoints[enemy.GetComponent<ItemIdentifier>().NextPointID].transform.position, (float)0.01);
+                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, KeyPoints[enemy.GetComponent<ItemIdentifier>().NextPointID].transform.position, GlobalSettings.Step);
                 if(enemy.transform.position == KeyPoints[enemy.GetComponent<ItemIdentifier>().NextPointID].transform.position && enemy.GetComponent<ItemIdentifier>().NextPointID < KeyPoints.Count - 1)
                 {
                     enemy.GetComponent<ItemIdentifier>().NextPointID++;
