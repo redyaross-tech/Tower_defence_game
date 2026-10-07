@@ -25,15 +25,14 @@ public class PathLine : MonoBehaviour
 
         for (int i = 0; i < nodes.Count; i++){
             Vector3 CurrentNode = nodes[i].position;
-
             if(i > 0){
                 Vector3 PreviousNode = nodes[i-1].position;
                 Gizmos.DrawLine(PreviousNode, CurrentNode);
-            }
-            
+            }  
         }
-
-
     }
-
+    void Start()
+    {
+        LineColor = new Color(0, 0, 0, 0);
+    }
 }

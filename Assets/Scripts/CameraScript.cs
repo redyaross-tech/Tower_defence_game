@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class CamerScript : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
     [SerializeField] Camera camera;
     void ZoomOut()
