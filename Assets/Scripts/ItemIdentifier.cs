@@ -9,10 +9,9 @@ public enum ObjectType
 
 public class ItemIdentifier : MonoBehaviour
 {
-    [Header("Настройки идентификации")]
-    [Tooltip("Уникальный числовой ID объекта")]
-    public int id;
+    public int KeyPointID;
     public int NextPointID;
+    public int ButtonID;
     
     [Tooltip("Тип объекта из списка")]
     public ObjectType objectType;

@@ -27,7 +27,7 @@ public class EnemyScript : MonoBehaviour
     void GetKeyPoints()
     {
         KeyPoints.AddRange(GameObject.FindGameObjectsWithTag("KeyPoint"));
-        KeyPoints = KeyPoints.OrderBy(k => k.GetComponent<ItemIdentifier>().id).ToList();
+        KeyPoints = KeyPoints.OrderBy(k => k.GetComponent<ItemIdentifier>().KeyPointID).ToList();
     }
 
     //Обновление позиции врагов и удаление их из списка при достижении конечной точки
@@ -72,5 +72,6 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         GetKeyPoints();
+        InvokeRepeating("SpawnEnemy", 0f, 0.5f);
     }
 }
