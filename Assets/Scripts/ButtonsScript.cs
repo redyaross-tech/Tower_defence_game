@@ -1,21 +1,32 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonsScript : MonoBehaviour
 {
     [SerializeField] private Button BuildButton;
-    [SerializeField] private GameObject BuildMenu;
+    private List<GameObject> BuildMenu = new List<GameObject>();
     private int toggle = 0;
+
+    void GetBuildButtons()
+    {
+        BuildMenu.AddRange(GameObject.FindGameObjectsWithTag("BuildButton"));
+    }
     public void MoveBuildMenuUP()
     {
-        BuildMenu.transform.position = Vector3.MoveTowards(BuildMenu.transform.position, new Vector3(BuildMenu.transform.position.x, 140, 0), 5f);
+        foreach (GameObject button in BuildMenu)
+        {
+            button.transform.position = Vector3.MoveTowards(button.transform.position, new Vector3(button.transform.position.x, 140, 0), 5f);
+        }
     }
 
     public void MoveBuildMenuDOWN()
     {
-        BuildMenu.transform.position = Vector3.MoveTowards(BuildMenu.transform.position, new Vector3(BuildMenu.transform.position.x, -150, 0), 5f);
+        foreach (GameObject button in BuildMenu)
+        {
+            button.transform.position = Vector3.MoveTowards(button.transform.position, new Vector3(button.transform.position.x, -150, 0), 5f);
+        }
     }
-
     void Toggle()
     {
         switch (toggle)
@@ -29,12 +40,13 @@ public class ButtonsScript : MonoBehaviour
             }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
             Toggle();
         }
+        
         if (toggle == 1)
         {
             MoveBuildMenuUP();
@@ -47,6 +59,7 @@ public class ButtonsScript : MonoBehaviour
 
     void Start()
     {
+        GetBuildButtons();
         BuildButton.onClick.AddListener(() =>
         {
             Toggle();

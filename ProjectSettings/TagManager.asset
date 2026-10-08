@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - KeyPoint
+  - BuildButton
   layers:
   - Default
   - TransparentFX
