@@ -3,16 +3,41 @@ using UnityEngine.Rendering.Universal;
 
 public class CameraScript : MonoBehaviour
 {
-    [SerializeField] Camera camera;
+    [SerializeField] Camera MainCamera;
+    [SerializeField] private float dragSpeed = 0.5f;
+
+    private Vector3 DragOrigin;
     void ZoomOut()
     {
-        camera.orthographicSize = 6f;
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0.0f)
+        {
+            MainCamera.orthographicSize -= scroll * 5;
+            MainCamera.orthographicSize = Mathf.Clamp(MainCamera.orthographicSize, 2, 20);
+        }
+    }
+
+    void CameraDrag()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            DragOrigin = MainCamera.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 difference = DragOrigin - MainCamera.ScreenToWorldPoint(Input.mousePosition);
+            transform.position += difference * dragSpeed;
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            transform.position = new Vector3(0, 0, -10);
+        }
     }
     void Update()
     {
-        if(Screen.width / Screen.height != 16f / 9f)
-        {
-            ZoomOut();
-        }
+        CameraDrag();
+        ZoomOut();
     }
 }

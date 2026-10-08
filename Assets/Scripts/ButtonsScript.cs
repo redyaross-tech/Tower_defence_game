@@ -29,7 +29,7 @@ public class ButtonsScript : MonoBehaviour
             }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {

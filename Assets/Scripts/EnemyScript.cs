@@ -53,15 +53,19 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
+    void FixedUpdate()
+    {
+        if(Enemies.Count >= 1)
+        {
+            MoveEnemies();
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SpawnEnemy();
-        }
-        if(Enemies.Count >= 1)
-        {
-            MoveEnemies();
         }
     }
 
