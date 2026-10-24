@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 379252901}
   - component: {fileID: 379252900}
   - component: {fileID: 379252899}
+  - component: {fileID: 379252902}
   m_Layer: 5
   m_Name: BuildTower4
   m_TagString: BuildButton
@@ -937,6 +938,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379252897}
   m_CullTransparentMesh: 1
+--- !u!114 &379252902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379252897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f713a5eeac1e94cbfbc6a32f625a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypes
+  Tower: 4
 --- !u!1 &406129570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1845,7 @@ GameObject:
   - component: {fileID: 947941016}
   - component: {fileID: 947941015}
   - component: {fileID: 947941014}
+  - component: {fileID: 947941017}
   m_Layer: 5
   m_Name: BuildTower2
   m_TagString: BuildButton
@@ -1940,6 +1955,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947941012}
   m_CullTransparentMesh: 1
+--- !u!114 &947941017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947941012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f713a5eeac1e94cbfbc6a32f625a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypes
+  Tower: 2
 --- !u!1 &969021419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2415,7 @@ GameObject:
   - component: {fileID: 1324992304}
   - component: {fileID: 1324992303}
   - component: {fileID: 1324992302}
+  - component: {fileID: 1324992305}
   m_Layer: 5
   m_Name: RemoveTower-BuildButton
   m_TagString: BuildButton
@@ -2496,6 +2525,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324992300}
   m_CullTransparentMesh: 1
+--- !u!114 &1324992305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324992300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f713a5eeac1e94cbfbc6a32f625a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypes
+  Tower: 0
 --- !u!1 &1343763572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2598,7 @@ GameObject:
   - component: {fileID: 1451660358}
   - component: {fileID: 1451660357}
   - component: {fileID: 1451660356}
+  - component: {fileID: 1451660359}
   m_Layer: 5
   m_Name: BuildTower1
   m_TagString: BuildButton
@@ -2665,6 +2708,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451660354}
   m_CullTransparentMesh: 1
+--- !u!114 &1451660359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451660354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f713a5eeac1e94cbfbc6a32f625a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypes
+  Tower: 1
 --- !u!1 &1571165414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,7 +2855,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2912,6 +2968,7 @@ GameObject:
   - component: {fileID: 1842694148}
   - component: {fileID: 1842694147}
   - component: {fileID: 1842694146}
+  - component: {fileID: 1842694149}
   m_Layer: 5
   m_Name: BuildTower3
   m_TagString: BuildButton
@@ -3021,6 +3078,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842694144}
   m_CullTransparentMesh: 1
+--- !u!114 &1842694149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842694144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f713a5eeac1e94cbfbc6a32f625a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypes
+  Tower: 3
 --- !u!1 &1853840384
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3379,7 @@ GameObject:
   - component: {fileID: 1966561544}
   - component: {fileID: 1966561546}
   - component: {fileID: 1966561548}
+  - component: {fileID: 1966561549}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3372,6 +3443,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonsScript
   BuildButton: {fileID: 30476180}
+--- !u!114 &1966561549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966561543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c919c165b14a94db3324b1ec904837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingScript
 --- !u!1 &1968792326
 GameObject:
   m_ObjectHideFlags: 0

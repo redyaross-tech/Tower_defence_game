@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System.Linq;
 using UnityEngine.UI;
 
 public class BuildingScript : MonoBehaviour
 {
     private List<GameObject> BuildButtons = new List<GameObject>();
+    public static string CurrentTower;
 
     void GetBuildButtons()
     {
@@ -19,7 +18,8 @@ public class BuildingScript : MonoBehaviour
         {
             button.GetComponent<Button>().onClick.AddListener(() =>
             {
-                
+                CurrentTower =  button.GetComponent<BuildingTypes>().Tower.ToString();
+                //Debug.Log(CurrentTower);
             });
         }
     }
@@ -27,5 +27,6 @@ public class BuildingScript : MonoBehaviour
     void Start()
     {
         GetBuildButtons();
+        BuidColorMarkerTest();
     }
 }
