@@ -9,6 +9,11 @@ public class PathLine : MonoBehaviour
     // Path node storage
     private List<Transform> nodes = new List<Transform>();
 
+    void Start()
+    {
+        LineColor = new Color(0, 0, 0, 0);
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = LineColor;
@@ -30,9 +35,5 @@ public class PathLine : MonoBehaviour
                 Gizmos.DrawLine(PreviousNode, CurrentNode);
             }  
         }
-    }
-    void Start()
-    {
-        LineColor = new Color(0, 0, 0, 0);
     }
 }

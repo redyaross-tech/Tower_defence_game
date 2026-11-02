@@ -12,6 +12,7 @@ public class BladerScript : MonoBehaviour
     [SerializeField] GameObject blade4;
     private List<GameObject> Blades = new List<GameObject>();
     private float rotationSpeed = 100f;
+
     void Start()
     {
         Blades.Add(blade1);
@@ -19,7 +20,8 @@ public class BladerScript : MonoBehaviour
         Blades.Add(blade3);
         Blades.Add(blade4);
     }
-    void Update()
+
+    void FixedUpdate()
     {
         for(int i = Blades.Count - 1; i >= 0; i--)
         {

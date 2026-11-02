@@ -8,10 +8,32 @@ public class ButtonsScript : MonoBehaviour
     private List<GameObject> BuildMenu = new List<GameObject>();
     private int toggle = 0;
 
-    void GetBuildButtons()
+    void Start()
     {
-        BuildMenu.AddRange(GameObject.FindGameObjectsWithTag("BuildButton"));
+        GetBuildButtons();
+        BuildButton.onClick.AddListener(() =>
+        {
+            Toggle();
+        });
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Toggle();
+        }
+
+        if (toggle == 1)
+        {
+            MoveBuildMenuUP();
+        }
+        else
+        {
+            MoveBuildMenuDOWN();
+        }
+    }
+
     public void MoveBuildMenuUP()
     {
         foreach (GameObject button in BuildMenu)
@@ -27,6 +49,12 @@ public class ButtonsScript : MonoBehaviour
             button.transform.position = Vector3.MoveTowards(button.transform.position, new Vector3(button.transform.position.x, -150, 0), 5f);
         }
     }
+
+    void GetBuildButtons()
+    {
+        BuildMenu.AddRange(GameObject.FindGameObjectsWithTag("BuildButton"));
+    }
+
     void Toggle()
     {
         switch (toggle)
@@ -38,31 +66,5 @@ public class ButtonsScript : MonoBehaviour
                     toggle = 0;
                     break;
             }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Toggle();
-        }
-        
-        if (toggle == 1)
-        {
-            MoveBuildMenuUP();
-        }
-        else
-        {
-            MoveBuildMenuDOWN();
-        }
-    }
-
-    void Start()
-    {
-        GetBuildButtons();
-        BuildButton.onClick.AddListener(() =>
-        {
-            Toggle();
-        });
     }
 }

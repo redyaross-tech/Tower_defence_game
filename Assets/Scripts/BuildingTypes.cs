@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class BuildingTypes : MonoBehaviour
 {
-    [SerializeField] public TowerName Tower;
-
     public enum TowerName
     {
         Remove,
@@ -12,4 +10,6 @@ public class BuildingTypes : MonoBehaviour
         Blader,
         FlameThrower
     }
+
+    [SerializeField] public TowerName Tower;
 }

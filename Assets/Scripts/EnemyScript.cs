@@ -14,6 +14,28 @@ public class EnemyScript : MonoBehaviour
     //Список ключевых точек
     private List<GameObject> KeyPoints = new List<GameObject>();
 
+    void Start()
+    {
+        GetKeyPoints();
+        InvokeRepeating("SpawnEnemy", 0f, GlobalSettings.EnemySpawnRate);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnEnemy();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if(Enemies.Count >= 1)
+        {
+            MoveEnemies();
+        }
+    }
+
     //Создание врага и добавление его в список
     void SpawnEnemy()
     {
@@ -52,26 +74,5 @@ public class EnemyScript : MonoBehaviour
                 }
             }
         }
-    }
-    void FixedUpdate()
-    {
-        if(Enemies.Count >= 1)
-        {
-            MoveEnemies();
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnEnemy();
-        }
-    }
-
-    void Start()
-    {
-        GetKeyPoints();
-        InvokeRepeating("SpawnEnemy", 0f, 0.1f);
     }
 }

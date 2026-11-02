@@ -7,14 +7,11 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private float dragSpeed = 0.5f;
 
     private Vector3 DragOrigin;
-    void ZoomOut()
+
+    void Update()
     {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll != 0.0f)
-        {
-            MainCamera.orthographicSize -= scroll * 5;
-            MainCamera.orthographicSize = Mathf.Clamp(MainCamera.orthographicSize, 2, 20);
-        }
+        CameraDrag();
+        ZoomOut();
     }
 
     void CameraDrag()
@@ -35,9 +32,14 @@ public class CameraScript : MonoBehaviour
             transform.position = new Vector3(0, 0, -10);
         }
     }
-    void Update()
+
+    void ZoomOut()
     {
-        CameraDrag();
-        ZoomOut();
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0.0f)
+        {
+            MainCamera.orthographicSize -= scroll * 5;
+            MainCamera.orthographicSize = Mathf.Clamp(MainCamera.orthographicSize, 2, 20);
+        }
     }
 }
