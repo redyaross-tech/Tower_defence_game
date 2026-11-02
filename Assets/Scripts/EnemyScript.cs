@@ -72,6 +72,6 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         GetKeyPoints();
-        InvokeRepeating("SpawnEnemy", 0f, 0.5f);
+        InvokeRepeating("SpawnEnemy", 0f, 0.1f);
     }
 }

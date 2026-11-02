@@ -19,7 +19,6 @@ public class BuildingScript : MonoBehaviour
             button.GetComponent<Button>().onClick.AddListener(() =>
             {
                 CurrentTower =  button.GetComponent<BuildingTypes>().Tower.ToString();
-                //Debug.Log(CurrentTower);
             });
         }
     }
