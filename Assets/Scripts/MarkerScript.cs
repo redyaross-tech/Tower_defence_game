@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 public class MarkerScript : MonoBehaviour
 {
     [SerializeField] private GameObject Marker;
+    [SerializeField] private Sprite BladerIcon;
     private string tower;
-    private Color color;
+    private Sprite towerToPlace;
+
     
     //Определение положения мыши относительно игровых координат и округление для создания сетки
-    (double, double) MousePos(){
+    static public (double, double) MousePos(){
         Vector2 MousePos = Mouse.current.position.ReadValue();
         Vector3 WorldMousePos = Camera.main.ScreenToWorldPoint(MousePos);
 
@@ -24,25 +26,29 @@ public class MarkerScript : MonoBehaviour
         switch (tower)
         {
             case "Remove":
-                color = new Color32(255, 0 , 0, 255);
+                towerToPlace = null;
                 break;
             case "Cannon":
-                color = new Color32(255, 255 , 0, 255);
+                towerToPlace = null;
                 break;
             case "Laser":
-                color = new Color32(0, 255, 0, 255);
+                towerToPlace = null;
                 break;
             case "Blader":
-                color = new Color32(0, 0, 255, 255);
+                towerToPlace = BladerIcon;
                 break;
             case "FlameThrower":
-                color = new Color32(255, 128, 0, 255);
+                towerToPlace = null;
                 break;
             default:
                 break;
         }
-        Marker.GetComponent<SpriteRenderer>().color = color;
-        
+        Marker.GetComponent<SpriteRenderer>().sprite = towerToPlace;
+    }
+
+    void Start()
+    {
+        Marker.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
     }
 
     void Update()
