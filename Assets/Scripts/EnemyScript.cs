@@ -2,22 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using System.Collections;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] GameObject BasicEnemyPrefab;
-    [SerializeField] GameObject SpawnPoint;
-    [SerializeField] GameObject EndPoint;
+    [SerializeField] public GameObject BasicEnemyPrefab;
+    [SerializeField] public GameObject SpawnPoint;
+    [SerializeField] public GameObject EndPoint;
 
     //Список активных врагов
-    private List<GameObject> Enemies = new List<GameObject>();
+    static private List<GameObject> Enemies = new List<GameObject>();
     //Список ключевых точек
     private List<GameObject> KeyPoints = new List<GameObject>();
 
     void Start()
     {
         GetKeyPoints();
-        InvokeRepeating("SpawnEnemy", 0f, GlobalSettings.EnemySpawnRate);
+        //InvokeRepeating("SpawnEnemy", 0f, GlobalSettings.EnemySpawnRate);
     }
 
     void FixedUpdate()
@@ -29,19 +30,22 @@ public class EnemyScript : MonoBehaviour
     }
 
     //Создание врага и добавление его в список
-    void SpawnEnemy()
+    public IEnumerator SpawnEnemyCoroutine(GameObject prefab, int amount, float delay)
     {
-        GameObject Enemy = Instantiate(BasicEnemyPrefab, SpawnPoint.transform.position, Quaternion.identity);
+        for(int i = 0; i <= amount; i++){
+        yield return new WaitForSeconds(delay);
+        GameObject Enemy = Instantiate(prefab, SpawnPoint.transform.position, Quaternion.identity);
         //ID следующей ключевой точки
-        Enemy.GetComponent<ItemIdentifier>().NextPointID = 0;
+        Enemy.GetComponent<NextPointData>().NextPointID = 0;
         Enemies.Add(Enemy);
+        }
     }
 
     //Нахождение всех ключевых точек на карте
     void GetKeyPoints()
     {
         KeyPoints.AddRange(GameObject.FindGameObjectsWithTag("KeyPoint"));
-        KeyPoints = KeyPoints.OrderBy(k => k.GetComponent<ItemIdentifier>().KeyPointID).ToList();
+        KeyPoints = KeyPoints.OrderBy(k => k.GetComponent<KeyPointID>().KeyPointId).ToList();
     }
 
     //Обновление позиции врагов и удаление их из списка при достижении конечной точки
@@ -54,10 +58,10 @@ public class EnemyScript : MonoBehaviour
             for(int i = Enemies.Count - 1; i >= 0; i--)
             {
                 GameObject enemy = Enemies[i];
-                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, KeyPoints[enemy.GetComponent<ItemIdentifier>().NextPointID].transform.position, GlobalSettings.Step);
-                if(enemy.transform.position == KeyPoints[enemy.GetComponent<ItemIdentifier>().NextPointID].transform.position && enemy.GetComponent<ItemIdentifier>().NextPointID < KeyPoints.Count - 1)
+                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, KeyPoints[enemy.GetComponent<NextPointData>().NextPointID].transform.position, enemy.GetComponent<EnemyData>().Speed / 10);
+                if(enemy.transform.position == KeyPoints[enemy.GetComponent<NextPointData>().NextPointID].transform.position && enemy.GetComponent<NextPointData>().NextPointID < KeyPoints.Count - 1)
                 {
-                    enemy.GetComponent<ItemIdentifier>().NextPointID++;
+                    enemy.GetComponent<NextPointData>().NextPointID++;
                 }
                 if(enemy.transform.position == EndPoint.transform.position)
                 {

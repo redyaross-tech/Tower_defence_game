@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class BuildingScript : MonoBehaviour
 {
     [SerializeField] private GameObject BladerPrefab;
+    [SerializeField] private GameObject BladerIcon;
 
     public static string CurrentTower;
     private List<GameObject> BuildButtons = new List<GameObject>();
@@ -13,6 +14,7 @@ public class BuildingScript : MonoBehaviour
 
     //переменная для башен
     private GameObject Tower;
+    private GameObject TowerIcon;
 
     void Start()
     {
@@ -41,6 +43,8 @@ public class BuildingScript : MonoBehaviour
             button.GetComponent<Button>().onClick.AddListener(() =>
             {
                 CurrentTower =  button.GetComponent<BuildingTypes>().Tower.ToString();
+                Instantiate(BladerIcon, new Vector3(0, 0, 0), Quaternion.identity);
+                Debug.Log("click");
             });
         }
     }
@@ -61,6 +65,7 @@ public class BuildingScript : MonoBehaviour
                 break;
             case "Blader":
                 Tower = BladerPrefab;
+                TowerIcon = BladerIcon;
                 break;
             case "FlameThrower":
                 Tower = null;
