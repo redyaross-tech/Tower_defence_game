@@ -3380,7 +3380,6 @@ GameObject:
   - component: {fileID: 1966561546}
   - component: {fileID: 1966561548}
   - component: {fileID: 1966561549}
-  - component: {fileID: 1966561550}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3401,7 +3400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarkerScript
   Marker: {fileID: 1668897074}
-  BladerIcon: {fileID: 21300000, guid: fb1129e46c464c74da409721857e8ad5, type: 3}
+  BladerIcon: {fileID: 21300000, guid: ce421f2a53a344b4f99eee9cd23ad1de, type: 3}
 --- !u!4 &1966561545
 Transform:
   m_ObjectHideFlags: 0
