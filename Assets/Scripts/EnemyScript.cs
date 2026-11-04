@@ -5,7 +5,7 @@ using System.Linq;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] GameObject EnemyPrefab;
+    [SerializeField] GameObject BasicEnemyPrefab;
     [SerializeField] GameObject SpawnPoint;
     [SerializeField] GameObject EndPoint;
 
@@ -20,14 +20,6 @@ public class EnemyScript : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 0f, GlobalSettings.EnemySpawnRate);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnEnemy();
-        }
-    }
-
     void FixedUpdate()
     {
         if(Enemies.Count >= 1)
@@ -39,7 +31,7 @@ public class EnemyScript : MonoBehaviour
     //Создание врага и добавление его в список
     void SpawnEnemy()
     {
-        GameObject Enemy = Instantiate(EnemyPrefab, SpawnPoint.transform.position, Quaternion.identity);
+        GameObject Enemy = Instantiate(BasicEnemyPrefab, SpawnPoint.transform.position, Quaternion.identity);
         //ID следующей ключевой точки
         Enemy.GetComponent<ItemIdentifier>().NextPointID = 0;
         Enemies.Add(Enemy);

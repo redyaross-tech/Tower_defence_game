@@ -3457,6 +3457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c919c165b14a94db3324b1ec904837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingScript
+  BladerPrefab: {fileID: 4256699939346825113, guid: e73624ad02b670b4dbd5b3206fd31302, type: 3}
 --- !u!114 &1966561550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3469,7 +3470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38a5236ce13b6b44a390697f825f2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  BladerPrefab: {fileID: 4256699939346825113, guid: e73624ad02b670b4dbd5b3206fd31302, type: 3}
 --- !u!1 &1968792326
 GameObject:
   m_ObjectHideFlags: 0
