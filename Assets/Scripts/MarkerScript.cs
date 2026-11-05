@@ -24,8 +24,8 @@ public class MarkerScript : MonoBehaviour
 
     void Update()
     {
+        GetMarker();
         if(Marker != null){
-            GetMarker();
             //Обработка маркера
             (double, double) MousePosDouble = MousePos();
             Marker.transform.position = new Vector3((float)MousePosDouble.Item1, (float)MousePosDouble.Item2, 0f);

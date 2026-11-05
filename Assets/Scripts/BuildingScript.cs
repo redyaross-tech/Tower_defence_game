@@ -7,6 +7,12 @@ public class BuildingScript : MonoBehaviour
 {
     [SerializeField] private GameObject BladerPrefab;
     [SerializeField] private GameObject BladerIcon;
+    [SerializeField] private GameObject CannonPrefab;
+    [SerializeField] private GameObject CannonIcon;
+    [SerializeField] private GameObject LaserPrefab;
+    [SerializeField] private GameObject LaserIcon;
+    [SerializeField] private GameObject FlameThrowerPrefab;
+    [SerializeField] private GameObject FlameThrowerIcon;
 
     public static string CurrentTower;
     private List<GameObject> BuildButtons = new List<GameObject>();
@@ -15,6 +21,7 @@ public class BuildingScript : MonoBehaviour
     //переменная для башен
     private GameObject Tower;
     private GameObject TowerIcon;
+    private GameObject MarkerToDestroy;
 
     void Start()
     {
@@ -24,7 +31,6 @@ public class BuildingScript : MonoBehaviour
 
     void Update()
     {
-        TowerSelect();
         if (Input.GetMouseButtonDown(0) && Tower != null)
         {
             Build();
@@ -42,9 +48,17 @@ public class BuildingScript : MonoBehaviour
         {
             button.GetComponent<Button>().onClick.AddListener(() =>
             {
+                if(MarkerToDestroy != null)
+                {
+                    Destroy(MarkerToDestroy);
+                }
                 CurrentTower =  button.GetComponent<BuildingTypes>().Tower.ToString();
-                Instantiate(BladerIcon, new Vector3(0, 0, 0), Quaternion.identity);
-                Debug.Log("click");
+                TowerSelect();
+                if(CurrentTower != null){
+                    MarkerToDestroy = Instantiate(TowerIcon, new Vector3(0, 0, 0), Quaternion.identity);
+                }
+
+                //Debug.Log("click");
             });
         }
     }
@@ -56,19 +70,23 @@ public class BuildingScript : MonoBehaviour
         {
             case "Remove":
                 Tower = null;
+                TowerIcon = null;
                 break;
             case "Cannon":
-                Tower = null;
+                Tower = CannonPrefab;
+                TowerIcon = CannonIcon;
                 break;
             case "Laser":
-                Tower = null;
+                Tower = LaserPrefab;
+                TowerIcon = LaserIcon;
                 break;
             case "Blader":
                 Tower = BladerPrefab;
                 TowerIcon = BladerIcon;
                 break;
-            case "FlameThrower":
-                Tower = null;
+            case "Flamethrower":
+                Tower = FlameThrowerPrefab;
+                TowerIcon = FlameThrowerIcon;
                 break;
             default:
                 break;

@@ -3327,6 +3327,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingScript
   BladerPrefab: {fileID: 4619671445872953416, guid: e73624ad02b670b4dbd5b3206fd31302, type: 3}
   BladerIcon: {fileID: 4541106922186988255, guid: f232eef86ed4dce47a7bf32448b01635, type: 3}
+  CannonPrefab: {fileID: 5644679367550488242, guid: 7aa1b976aca4a884a84540b154798af4, type: 3}
+  CannonIcon: {fileID: 3033977540577849785, guid: 604126da12f12204f98d22f19a9d0be5, type: 3}
+  LaserPrefab: {fileID: 9093945073701057141, guid: 91b7db2341688ff4d85072db9b33ff3b, type: 3}
+  LaserIcon: {fileID: 3547869434457152274, guid: 7d79a117803814d4f94baad9c9f086f0, type: 3}
+  FlameThrowerPrefab: {fileID: 1511015922911718110, guid: c0f103ab0a6e7d142b2ea011c3260577, type: 3}
+  FlameThrowerIcon: {fileID: 3211491338887258826, guid: ea921933ce2003a46b24640bc1186ec8, type: 3}
 --- !u!114 &1966561550
 MonoBehaviour:
   m_ObjectHideFlags: 0

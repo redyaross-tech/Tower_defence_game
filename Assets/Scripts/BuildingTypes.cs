@@ -8,7 +8,7 @@ public class BuildingTypes : MonoBehaviour
         Cannon,
         Laser,
         Blader,
-        FlameThrower
+        Flamethrower
     }
 
     [SerializeField] public TowerName Tower;
