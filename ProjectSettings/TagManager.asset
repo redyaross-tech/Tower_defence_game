@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KeyPoint
   - BuildButton
+  - Marker
   layers:
   - Default
   - TransparentFX
